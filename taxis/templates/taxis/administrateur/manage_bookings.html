@@ -1,0 +1,41 @@
+{% extends 'taxis/base.html' %}
+
+{% block title %}Gérer les Réservations{% endblock %}
+
+{% block content %}
+<h2>Gérer les Réservations</h2>
+
+<table class="table table-striped mt-4">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Client</th>
+            <th>Location</th>
+            <th>Destination</th>
+            <th>Date et heure</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for booking in bookings %}
+        <tr>
+            <td>{{ booking.id }}</td>
+            <td>{{ booking.user.username }}</td>
+            <td>{{ booking.pickup_location }}</td>
+            <td>{{ booking.destination }}</td>
+            <td>{{ booking.pickup_time }}</td>
+            <td>
+                <a href="{% url 'cancel_booking' booking.id %}" class="btn btn-danger">Annuler</a>
+                <a href="{% url 'modify_booking' booking.id %}" class="btn btn-primary">Modifier</a>
+            </td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="5">Aucune réservation trouvée.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<a href="{% url 'administrateur_dashboard' %}" class="btn btn-secondary mt-3">Retour</a>
+{% endblock %}

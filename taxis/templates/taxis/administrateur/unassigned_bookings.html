@@ -1,0 +1,37 @@
+{% extends 'taxis/base.html' %}
+
+{% block title %}Réservations Non Assignées{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>Réservations Non Assignées</h2>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Client</th>
+                    <th>Lieu de prise en charge</th>
+                    <th>Destination</th>
+                    <th>Heure de prise en charge</th>
+                    <th>Numéro de contact</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for booking in bookings %}
+                <tr>
+                    <td>{{ booking.user.username }}</td>
+                    <td>{{ booking.pickup_location }}</td>
+                    <td>{{ booking.destination }}</td>
+                    <td>{{ booking.pickup_time }}</td>
+                    <td>{{ booking.contact_number }}</td>
+                    <td>
+                        <a href="{% url 'assign_driver' booking.id %}" class="btn btn-primary btn-sm">Assigner un Conducteur</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

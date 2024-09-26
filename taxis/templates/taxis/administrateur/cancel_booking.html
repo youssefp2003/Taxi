@@ -1,0 +1,28 @@
+<!-- templates/taxis/cancel_booking.html -->
+{% extends 'taxis/base.html' %}
+
+{% block title %}Annuler la Réservation{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="card">
+        <div class="card-body">
+            <h2 class="card-title">Annuler la Réservation</h2>
+            <p>Vous êtes sur le point d'annuler la réservation suivante :</p>
+            <ul class="list-group mb-3">
+                <li class="list-group-item"><strong>Client :</strong> {{ booking.user.username }}</li>
+                <li class="list-group-item"><strong>Pickup Location :</strong> {{ booking.pickup_location }}</li>
+                <li class="list-group-item"><strong>Destination :</strong> {{ booking.destination }}</li>
+                <li class="list-group-item"><strong>Pickup Time :</strong> {{ booking.pickup_time }}</li>
+            </ul>
+            <form method="post" action="{% url 'cancel_booking' booking.id %}">
+                {% csrf_token %}
+                <p>Êtes-vous sûr de vouloir annuler cette réservation ?</p>
+                <button type="submit" class="btn btn-danger">Confirmer Annulation</button>
+                <a href="{% url 'driver_dashboard' %}" class="btn btn-secondary">Retour au Tableau de Bord</a>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

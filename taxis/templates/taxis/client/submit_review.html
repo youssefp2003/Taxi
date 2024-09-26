@@ -1,0 +1,14 @@
+<!-- taxis/templates/taxis/submit_review.html -->
+
+{% extends 'taxis/base.html' %}
+
+{% block title %}Soumettre un Avis{% endblock %}
+
+{% block content %}
+    <h2>Soumettre un Avis</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Soumettre</button>
+    </form>
+{% endblock %}

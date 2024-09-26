@@ -1,0 +1,38 @@
+{% extends 'taxis/base.html' %}
+
+{% block title %}Mes Réservations{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>Mes Réservations</h2>
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Taxi</th>
+                <th>Lieu de prise en charge</th>
+                <th>Lieu de dépôt</th>
+                <th>Heure de prise en charge</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for booking in bookings %}
+                <tr>
+                    <td>{{ booking.taxi.name }}</td>
+                    <td>{{ booking.pickup_location }}</td>
+                    <td>{{ booking.destination }}</td>
+                    <td>{{ booking.pickup_time }}</td>
+                    <td>
+                        <a href="{% url 'cancel_reservation' booking.id %}" class="btn btn-danger btn-sm" onclick="return confirm('Voulez-vous vraiment annuler cette réservation ?');">Annuler</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

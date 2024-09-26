@@ -1,0 +1,14 @@
+<!-- templates/taxis/driver_signup.html -->
+{% extends 'taxis/base.html' %}
+
+{% block title %}Inscription Conducteur{% endblock %}
+
+{% block content %}
+<h2>Inscription Conducteur</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">S'inscrire</button>
+</form>
+<a href="{% url 'index' %}" class="btn btn-secondary mt-3">Retour</a>
+{% endblock %}

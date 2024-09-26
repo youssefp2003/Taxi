@@ -1,0 +1,16 @@
+<!-- templates/dashboard/list_taxis.html -->
+{% extends 'taxis/base.html' %}
+
+{% block title %}Liste des Taxis{% endblock %}
+
+{% block content %}
+<h2>Liste des Taxis</h2>
+<ul>
+    {% for taxi in taxis %}
+    <li><a href="{% url 'taxi_detail' taxi.id %}">{{ taxi.registration_number }} - {{ taxi.brand }} {{ taxi.model }}</a></li>
+    {% empty %}
+    <li>Aucun taxi disponible.</li>
+    {% endfor %}
+</ul>
+{% endblock %}
+

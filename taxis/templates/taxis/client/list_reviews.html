@@ -1,0 +1,28 @@
+<!-- templates/dashboard/list_reviews.html -->
+{% extends 'taxis/base.html' %}
+
+{% block title %}Liste des Avis{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>Liste des Avis</h2>
+    <div class="card-deck mt-4">
+        {% for review in reviews %}
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">{{ review.subject }}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Avis de {{ review.user.username }} sur {{ review.taxi }}</h6>
+                <p class="card-text">{{ review.comment }}</p>
+                <p class="card-text text-muted">{{ review.created_at }}</p>
+            </div>
+        </div>
+        {% empty %}
+        <div class="card">
+            <div class="card-body">
+                <p class="card-text">Aucun avis trouvé.</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,30 @@
+<!-- templates/driver/contact_client.html -->
+
+{% extends 'taxis/base.html' %}
+
+{% block title %}Contacter le Client{% endblock %}
+
+{% block content %}
+<h2>Contacter le Client</h2>
+<p>Détails du client :</p>
+<ul>
+    <li>Nom: {{ client.get_full_name }}</li>
+    <li>Email: {{ client.email }}</li>
+    <!-- Ajoutez plus de détails sur le client si nécessaire -->
+</ul>
+<p>Détails de la réservation :</p>
+<ul>
+    <li>Date: {{ booking.date }}</li>
+    <li>De: {{ booking.pickup_location }}</li>
+    <li>À: {{ booking.destination }}</li>
+    <!-- Ajoutez plus de détails sur la réservation si nécessaire -->
+</ul>
+
+<!-- Ajoutez un formulaire ou un lien ici pour initier le contact avec le client -->
+<form action="{% url 'send_message_to_client' booking.id %}" method="post">
+    {% csrf_token %}
+    <!-- Ajoutez les champs pour le message à envoyer -->
+    <textarea name="message" rows="4" cols="50" placeholder="Votre message"></textarea><br>
+    <button type="submit">Envoyer</button>
+</form>
+{% endblock %}

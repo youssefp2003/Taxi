@@ -1,0 +1,16 @@
+<!-- templates/admin/delete_client.html -->
+
+{% extends 'taxis/base.html' %}
+
+{% block title %}Supprimer le Client {{ client.username }}{% endblock %}
+
+{% block content %}
+<h2>Supprimer le Client "{{ client.username }}"</h2>
+<p>Êtes-vous sûr de vouloir supprimer ce client ? Cette action est irréversible.</p>
+
+<form method="post">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Supprimer</button>
+    <a href="{% url 'manage_clients' %}" class="btn btn-secondary">Annuler</a>
+</form>
+{% endblock %}

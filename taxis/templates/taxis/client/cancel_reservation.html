@@ -1,0 +1,14 @@
+<!-- templates/dashboard/cancel_reservation.html -->
+{% extends 'taxis/base.html' %}
+
+{% block title %}Annuler la Réservation{% endblock %}
+
+{% block content %}
+<h2>Annuler la Réservation</h2>
+<p>Êtes-vous sûr de vouloir annuler cette réservation ?</p>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">Oui, annuler</button>
+    <a href="{% url 'user_bookings' %}">Non, revenir en arrière</a>
+</form>
+{% endblock %}

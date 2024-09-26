@@ -1,0 +1,16 @@
+<!-- templates/taxis/administrateur/modify_booking.html -->
+{% extends 'taxis/base.html' %}
+
+{% block title %}Modifier Réservation{% endblock %}
+
+{% block content %}
+<h2>Modifier Réservation</h2>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Enregistrer Modification</button>
+</form>
+
+<a href="{% url 'index' %}" class="btn btn-secondary mt-3">Retour</a>
+{% endblock %}

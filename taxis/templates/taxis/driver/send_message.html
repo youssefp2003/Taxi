@@ -1,0 +1,16 @@
+<!-- templates/taxis/driver/send_message.html -->
+{% extends 'taxis/base.html' %}
+
+{% block title %}Envoyer un Message{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>Envoyer un Message au Client</h2>
+    <p>Réservation pour {{ booking.user.username }} ({{ booking.pickup_location }} à {{ booking.destination }})</p>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Envoyer</button>
+    </form>
+</div>
+{% endblock %}

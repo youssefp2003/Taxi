@@ -1,0 +1,108 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Accueil - Gestion des Taxis{% endblock %}</title>
+    <!-- Link Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <!-- Link Custom CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+        .navbar {
+            background-color: #343a40; /* Dark gray */
+            z-index: 1000; /* Ensure it is on top of other elements */
+        }
+        .navbar-dark .navbar-nav .nav-link {
+            color: #ffffff; /* White */
+        }
+        .navbar-dark .navbar-nav .nav-link:hover {
+            color: #cccccc; /* Light gray */
+        }
+        .footer {
+            background-color: #343a40; /* Dark gray */
+            color: #ffffff; /* White text */
+            text-align: center;
+            padding: 10px 0;
+            position: relative; /* Changed to relative to stay at the bottom of the container */
+            width: 100%;
+            margin-top: 50px; /* Added margin to separate from the content */
+        }
+        .footer a {
+            color: #ffffff; /* White text for footer links */
+        }
+        .footer a:hover {
+            color: #cccccc; /* Light gray on hover */
+            text-decoration: none; /* Remove underline */
+        }
+        .btn-primary {
+            background-color: #28a745; /* Green for buttons */
+            border-color: #28a745;
+        }
+        .btn-primary:hover {
+            background-color: #218838; /* Darker green on hover */
+            border-color: #1e7e34;
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark">
+  <a class="navbar-brand" href="{% url 'index' %}">Gestion des Taxis</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'index' %}">Accueil <span class="sr-only">(current)</span></a>
+      </li>
+      <!-- Add other navigation links here -->
+    </ul>
+    <ul class="navbar-nav ml-auto">
+        {% if user.is_authenticated %}
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'client_dashboard' %}">Client</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'driver_dashboard' %}">Conducteur</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'administrateur_dashboard' %}">Admin</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'logout' %}">Déconnexion</a>
+            </li>
+        {% else %}
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'login' %}">Connexion</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'signup' %}">Inscription</a>
+            </li>
+        {% endif %}
+    </ul>
+  </div>
+</nav>
+
+<div class="container mt-4">
+    {% block content %}
+    {% endblock %}
+</div>
+
+<footer class="footer">
+    <div class="container">
+        <p class="text-center">Copyright &copy; 2024. Tous droits réservés.</p>
+    </div>
+</footer>
+
+<!-- Bootstrap and Custom Scripts -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-FfYyoA1gJku0JXy5zWn0PTi3wlNvhu9hhRHCg6v/AzUscWNCc9Pypg3YcLvM1QqD" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+Wy2F1C0D1v7E4HRnpv4O0srxK62O3UZGcG" crossorigin="anonymous"></script>
+
+</body>
+</html>

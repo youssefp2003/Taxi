@@ -1,0 +1,15 @@
+<!-- taxis/templates/taxis/add_driver.html -->
+
+{% extends 'taxis/base.html' %}
+
+{% block title %}Ajouter un Conducteur{% endblock %}
+
+{% block content %}
+    <h2>Ajouter un Conducteur</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ user_form.as_p }}
+        {{ driver_form.as_p }}
+        <button type="submit">Ajouter</button>
+    </form>
+{% endblock %}

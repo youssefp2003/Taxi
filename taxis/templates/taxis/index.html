@@ -1,0 +1,112 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accueil - Gestion des Taxis</title>
+    <!-- Link Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <!-- Link Custom CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+        .card-client {
+            background-color: #3498db; /* Blue */
+            border-color: #3498db;
+        }
+        .card-driver {
+            background-color: #2ecc71; /* Green */
+            border-color: #2ecc71;
+        }
+        .card-admin {
+            background-color: #e74c3c; /* Red */
+            border-color: #e74c3c;
+        }
+        .card {
+            margin-top: 20px;
+        }
+        .card-body {
+            color: #fff; /* White text */
+        }
+        .footer {
+            color: #fff; /* White text */
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">Gestion des Taxis</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Accueil <span class="sr-only">(current)</span></a>
+      </li>
+      <!-- Add other navigation links here -->
+    </ul>
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'client_dashboard' %}">Client</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'driver_dashboard' %}">Conducteur</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'administrateur_dashboard' %}">Admin</a>
+        </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container mt-4">
+    <div class="jumbotron">
+        <h1 class="display-4">Bienvenue!</h1>
+        <p class="lead">Choissisez votre rôle !</p>
+        <hr class="my-4">
+        
+        <!-- Client Section -->
+        <div class="card card-client text-center">
+            <div class="card-body">
+                <h5 class="card-title">Espace Client</h5>
+                <p class="card-text">Accédez à vos réservations et autres fonctionnalités en tant que client.</p>
+                <a href="{% url 'client_dashboard' %}" class="btn btn-primary">Accéder</a>
+            </div>
+        </div>
+
+        <!-- Driver Section -->
+        <div class="card card-driver text-center mt-4">
+            <div class="card-body">
+                <h5 class="card-title">Espace Conducteur</h5>
+                <p class="card-text">Visualisez vos affectations et mettez à jour votre disponibilité en tant que conducteur.</p>
+                <a href="{% url 'driver_dashboard' %}" class="btn btn-primary">Accéder</a>
+            </div>
+        </div>
+
+        <!-- Administrator Section -->
+        <div class="card card-admin text-center mt-4">
+            <div class="card-body">
+                <h5 class="card-title">Espace Administrateur</h5>
+                <p class="card-text">Gérez les taxis, les conducteurs et les utilisateurs en tant qu'administrateur.</p>
+                <a href="{% url 'administrateur_dashboard' %}" class="btn btn-primary">Accéder</a>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<footer class="footer bg-dark text-white text-center py-3">
+    <p>Copyright &copy; 2024. Tous droits réservés.</p>
+</footer>
+
+<!-- Bootstrap and Custom Scripts -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-FfYyoA1gJku0JXy5zWn0PTi3wlNvhu9hhRHCg6v/AzUscWNCc9Pypg3YcLvM1QqD" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+Wy2F1C0D1v7E4HRnpv4O0srxK62O3UZGcG" crossorigin="anonymous"></script>
+
+</body>
+</html>

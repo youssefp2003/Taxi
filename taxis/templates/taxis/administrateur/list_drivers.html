@@ -1,0 +1,38 @@
+<!-- templates/taxis/administrateur/list_drivers.html -->
+{% extends 'taxis/base.html' %}
+
+{% block title %}Liste des Conducteurs{% endblock %}
+
+{% block content %}
+<h2>Liste des Conducteurs</h2>
+
+<table class="table table-striped mt-4">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nom d'utilisateur</th>
+           
+            <th>Actions</th>  <!-- Ajoutez une colonne pour les actions -->
+        </tr>
+    </thead>
+    <tbody>
+        {% for driver in drivers %}
+        <tr>
+            <td>{{ driver.id }}</td>
+            <td>{{ driver.username }}</td>
+            
+            <td>
+                <a href="{% url 'edit_driver' driver.id %}" class="btn btn-primary btn-sm">Modifier</a>
+                <a href="{% url 'delete_driver' driver.id %}" class="btn btn-danger btn-sm">Supprimer</a>
+            </td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="4">Aucun conducteur trouvé.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<a href="{% url 'administrateur_dashboard' %}" class="btn btn-secondary mt-3">Retour</a>
+{% endblock %}

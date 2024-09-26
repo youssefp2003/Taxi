@@ -1,0 +1,40 @@
+<!-- templates/dashboard/client_dashboard.html -->
+{% extends 'taxis/base.html' %}
+
+{% block title %}Tableau de bord Client{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>Bienvenue sur votre tableau de bord, {{ user.username }} (Client)</h2>
+    <div class="card-deck mt-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Réserver un Taxi</h5>
+                <p class="card-text">Réservez un taxi pour vos déplacements.</p>
+                <a href="{% url 'create_booking' %}" class="btn btn-primary">Réserver un Taxi</a>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Voir vos Réservations</h5>
+                <p class="card-text">Afficher et gérer vos réservations actuelles.</p>
+                <a href="{% url 'user_bookings' %}" class="btn btn-primary">Voir vos Réservations</a>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Soumettre un Avis</h5>
+                <p class="card-text">Soumettre un avis sur votre expérience.</p>
+                <a href="{% url 'submit_review' %}" class="btn btn-primary">Soumettre un Avis</a>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Voir vos Avis</h5>
+                <p class="card-text">Afficher tous vos avis soumis.</p>
+                <a href="{% url 'list_reviews' %}" class="btn btn-primary">Voir vos Avis</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

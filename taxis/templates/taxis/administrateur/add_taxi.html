@@ -1,0 +1,13 @@
+<!-- templates/taxis/add_taxi.html -->
+{% extends 'taxis/base.html' %}
+
+{% block title %}Ajouter un Taxi{% endblock %}
+
+{% block content %}
+    <h1>Ajouter un Taxi</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Ajouter</button>
+    </form>
+{% endblock %}

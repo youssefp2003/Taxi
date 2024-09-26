@@ -1,0 +1,7 @@
+{% extends 'taxis/base.html' %}
+
+{% block content %}
+<h2>Mon Profil</h2>
+<p>Nom d'utilisateur : {{ driver_profile.user.username }}</p>
+<p>Disponibilité : {{ driver_profile.availability }}</p>
+{% endblock %}

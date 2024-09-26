@@ -1,0 +1,30 @@
+<!-- templates/taxis/create_booking.html -->
+{% extends 'taxis/base.html' %}
+
+{% block title %}Créer une réservation{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>Créer une nouvelle réservation</h2>
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="id_pickup_location">Lieu de prise en charge</label>
+            {{ form.pickup_location }}
+        </div>
+        <div class="form-group">
+            <label for="id_destination">Destination</label>
+            {{ form.destination }}
+        </div>
+        <div class="form-group">
+            <label for="id_pickup_time">Date de prise en charge</label>
+            {{ form.pickup_time }}
+        </div>
+        <div class="form-group">
+            <label for="id_contact_number">Numéro de contact</label>
+            {{ form.contact_number }}
+        </div>
+        <button type="submit" class="btn btn-primary">Réserver</button>
+    </form>
+</div>
+{% endblock %}

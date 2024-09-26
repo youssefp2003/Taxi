@@ -1,0 +1,79 @@
+<!-- templates/dashboard/admin_dashboard.html -->
+{% extends 'taxis/base.html' %}
+
+{% block title %}Tableau de bord Administrateur{% endblock %}
+
+{% block content %}
+<div class="container mt-4 admin-dashboard">
+    <h2>Bienvenue sur votre tableau de bord, {{ user.username }} (Administrateur)</h2>
+    <div class="row mt-4">
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Ajouter un Taxi</h5>
+                    <p class="card-text">Ajouter un nouveau taxi dans le système.</p>
+                    <a href="{% url 'add_taxi' %}" class="btn btn-primary">Ajouter Taxi</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Gérer les Taxis</h5>
+                    <p class="card-text">Afficher et gérer la liste des taxis enregistrés.</p>
+                    <a href="{% url 'manage_taxis' %}" class="btn btn-primary">Gérer Taxis</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Ajouter un Conducteur</h5>
+                    <p class="card-text">Ajouter un nouveau conducteur dans le système.</p>
+                    <a href="{% url 'add_driver' %}" class="btn btn-primary">Ajouter Conducteur</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-4">
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Gérer les Conducteurs</h5>
+                    <p class="card-text">Afficher et gérer la liste des conducteurs enregistrés.</p>
+                    <a href="{% url 'list_drivers' %}" class="btn btn-primary">Gérer Conducteurs</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Gérer les Clients</h5>
+                    <p class="card-text">Afficher et gérer la liste des clients enregistrés.</p>
+                    <a href="{% url 'manage_clients' %}" class="btn btn-primary">Gérer Clients</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Gérer les Réservations</h5>
+                    <p class="card-text">Afficher et gérer la liste des réservations enregistrées.</p>
+                    <a href="{% url 'manage_bookings' %}" class="btn btn-primary">Gérer Réservations</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-4">
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Réservations Non Assignées</h5>
+                    <p class="card-text">Voir et assigner les réservations non encore attribuées à des conducteurs.</p>
+                    <a href="{% url 'unassigned_bookings' %}" class="btn btn-primary">Voir Réservations Non Assignées</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

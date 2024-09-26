@@ -1,0 +1,15 @@
+<!-- templates/admin/edit_driver.html -->
+
+{% extends 'taxis/base.html' %}
+
+{% block title %}Éditer le Conducteur {{ user.username }}{% endblock %}
+
+{% block content %}
+<h2>Éditer le Conducteur "{{ user.username }}"</h2>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Enregistrer</button>
+</form>
+{% endblock %}

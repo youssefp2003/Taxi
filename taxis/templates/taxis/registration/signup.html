@@ -1,0 +1,13 @@
+{% extends 'taxis/base.html' %}
+
+{% block title %}Inscription{% endblock %}
+
+{% block content %}
+<h2>Inscription</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Inscription</button>
+</form>
+<p>Vous avez déjà un compte ? <a href="{% url 'login' %}">Connectez-vous ici</a></p>
+{% endblock %}

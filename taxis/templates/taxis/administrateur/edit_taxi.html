@@ -1,0 +1,12 @@
+{% extends 'taxis/base.html' %}
+
+{% block title %}Modifier Taxi{% endblock %}
+
+{% block content %}
+    <h1>Modifier Taxi</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Enregistrer les modifications</button>
+    </form>
+{% endblock %}

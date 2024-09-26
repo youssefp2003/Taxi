@@ -1,0 +1,26 @@
+<!-- templates/dashboard/driver_dashboard.html -->
+{% extends 'taxis/base.html' %}
+
+{% block title %}Tableau de bord Conducteur{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>Bienvenue sur votre tableau de bord, {{ user.username }} (Conducteur)</h2>
+    <div class="card-deck mt-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Voir vos Assignations</h5>
+                <p class="card-text">Afficher et gérer vos assignations actuelles.</p>
+                <a href="{% url 'view_assignments' %}" class="btn btn-primary">Voir vos Assignations</a>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Mettre à jour votre Disponibilité</h5>
+                <p class="card-text">Mettre à jour votre disponibilité pour les courses.</p>
+                <a href="{% url 'update_availability' %}" class="btn btn-primary">Mettre à jour votre Disponibilité</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

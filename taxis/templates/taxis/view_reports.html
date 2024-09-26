@@ -1,0 +1,16 @@
+{% extends 'taxis/base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2>Voir les Rapports</h2>
+    <ul class="list-group">
+        {% for report in reports %}
+            <li class="list-group-item">
+                <h5>{{ report.title }}</h5>
+                <p>{{ report.content }}</p>
+                <small>Créé par {{ report.created_by.username }} le {{ report.created_at }}</small>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

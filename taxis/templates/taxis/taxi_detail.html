@@ -1,0 +1,12 @@
+<!-- templates/dashboard/taxi_details.html -->
+{% extends 'taxis/base.html' %}
+
+{% block title %}Détails du Taxi{% endblock %}
+
+{% block content %}
+<h2>Détails du Taxi</h2>
+<p>Numéro d'immatriculation : {{ taxi.registration_number }}</p>
+<p>Marque : {{ taxi.brand }}</p>
+<p>Modèle : {{ taxi.model }}</p>
+{% endblock %}
+
